@@ -1,0 +1,140 @@
+﻿@using CleanMasterApp.ViewModels
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+@model CompanyCreateViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"] - CleanMasterApp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CleanMasterApp">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font Awesome CSS -->
+    <link href="~/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- BEGIN CSS for this page -->
+    <!-- END CSS for this page -->
+</head>
+<body>
+    <style>
+        .text-box, password {
+            width: 350px;
+        }
+
+        label {
+            font-weight: 600
+        }
+
+        .field-validation-valid {
+            color: red
+        }
+    </style>
+    <h3>Join CleanMasterApp</h3>
+
+    <form method="post" enctype="multipart/form-data">
+        <fieldset style="        margin-left: auto;
+        margin-right: auto;
+        width: 500px">
+
+            <legend>Your personal information </legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.FullName)
+            </div>
+            <div class="editor-label">
+                @Html.EditorFor(x => x.FullName) <br>
+                @Html.ValidationMessageFor(x => x.FullName, "", new { style = "color:red" })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Username)
+            </div>
+            <div class="editor-label">
+                @Html.EditorFor(x => x.Username) <span id="unique_id_span"></span> <br>
+                @Html.ValidationMessageFor(x => x.Username, "", new { style = "color:red" })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Password)
+            </div>
+            <div class="editor-label">
+                @Html.PasswordFor(x => x.Password, new { style = "width:350px" }) <br>
+                @Html.ValidationMessageFor(x => x.Password, "", new { style = "color:red" })
+            </div>
+
+            <legend> Your company information </legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-label">
+                @Html.EditorFor(x => x.Name) <br>
+                @Html.ValidationMessageFor(x => x.Name, "", new { style = "color:red" })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-label">
+                @Html.EditorFor(x => x.Email) <br>
+                @Html.ValidationMessageFor(x => x.Email, "", new { style = "color:red" })
+            </div>
+
+            <div class="editor-label">
+                <p>Upload your company logo</p>
+                <input type="file" name="file">
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Address)
+            </div>
+            <div class="editor-label">
+                @Html.TextAreaFor(x => x.Address, new { style = "width:350px" })<br>
+                @Html.ValidationMessageFor(x => x.Address, "", new { style = "color:red" })
+            </div>
+
+            <br />
+            <p>
+                <input type="submit" class="btn btn-primary" value="Sign up" />
+                or <a href="Login">Click</a> here to sign in
+            </p>
+        </fieldset>
+    </form>
+    <script src="~/assets/js/modernizr.min.js"></script>
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/moment.min.js"></script>
+
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+
+    <script src="~/assets/js/detect.js"></script>
+    <script src="~/assets/js/fastclick.js"></script>
+    <script src="~/assets/js/jquery.blockUI.js"></script>
+    <script src="~/assets/js/jquery.nicescroll.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/pikeadmin.js"></script>
+
+    <!-- BEGIN Java Script for this page -->
+    <!---
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    -->
+    <!-- Counter-Up-->
+    <script src="~/assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="~/assets/plugins/counterup/jquery.counterup.min.js"></script>
+
+</body>

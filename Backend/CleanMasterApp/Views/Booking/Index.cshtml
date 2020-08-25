@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CleanMasterApp.Models.ServiceBooking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Bookings</h3>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table bg-light">
+    <thead>
+        <tr>
+            <th>
+                Service name
+            </th>
+            <th>
+                Date booked
+            </th>
+            <th>
+                Customer name
+            </th>
+            <th>
+                Customer email address
+            </th>
+            <th>
+                Customer phone number
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Phone)
+            </td>
+            <td>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
